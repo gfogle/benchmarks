@@ -1,0 +1,16 @@
+{
+  "name": "fastify",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A bare-bones fastify application",
+  "type": "commonjs",
+  "main": "src/index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {"fastify": "3.27.2"},
+  "devDependencies": {},
+  "scripts": {
+    "start": "node src/index.js"
+  }
+}
