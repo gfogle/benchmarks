@@ -1,5 +1,5 @@
 
-.PHONY: es4x express fastify
+.PHONY: es4x express fastify quarkus vertx
 
 es4x:
 	docker build -t es4x -f ./es4x/Dockerfile ./es4x && \
@@ -26,3 +26,18 @@ bench-fastify:
 
 stop:
 	docker stop es4x && docker stop fastify && docker stop express
+
+
+quarkus:
+	docker build -t quarkus -f ./quarkus/Dockerfile ./quarkus && \
+	docker run --rm -it -d --name quarkus -p7000:7000 quarkus:latest
+
+bench-quarkus:
+	./node_modules/.bin/autocannon http://localhost:7000/h -d 30
+
+vertx:
+	docker build -t vertx -f ./vertx/Dockerfile ./vertx && \
+	docker run --rm -it -d --name vertx -p6000:6000 vertx:latest
+
+bench-vertx:
+	./node_modules/.bin/autocannon http://localhost:6000 -d 30
