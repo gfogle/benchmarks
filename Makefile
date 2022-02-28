@@ -1,5 +1,5 @@
 
-.PHONY: es4x express fastify quarkus vertx
+.PHONY: es4x express fastify quarkus spring vertx
 
 es4x:
 	docker build -t es4x -f ./es4x/Dockerfile ./es4x && \
@@ -34,6 +34,15 @@ quarkus:
 
 bench-quarkus:
 	./node_modules/.bin/autocannon http://localhost:7000/h -d 30
+
+
+spring:
+	docker build -t spring -f ./spring/Dockerfile ./spring && \
+	docker run --rm -it -d --name spring -p8000:8000 spring:latest
+
+bench-spring:
+	./node_modules/.bin/autocannon http://localhost:8000 -d 30
+
 
 vertx:
 	docker build -t vertx -f ./vertx/Dockerfile ./vertx && \
