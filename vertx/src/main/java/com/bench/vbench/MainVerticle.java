@@ -1,5 +1,6 @@
 package com.bench.vbench;
 
+// import io.vertx.core.Vertx;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Promise;
 
@@ -20,4 +21,8 @@ public class MainVerticle extends AbstractVerticle {
       }
     });
   }
+
+  // public static void main(String[] args) {
+  //   Vertx.vertx().deployVerticle(new MainVerticle());
+  // }
 }
