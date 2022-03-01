@@ -18,9 +18,9 @@ COPY mvnw .
 COPY pom.xml .
 COPY src src/
 
-# RUN mvn clean package
-RUN mvn clean package -Dnative -DskipTests
+RUN mvn clean package
+# RUN mvn clean package -Dnative -DskipTests
 
 #CMD ["mvn", "compile", "quarkus:dev"]
-# CMD ["java", "-jar", "/web/target/quarkus-app/quarkus-run.jar"]
-CMD ["sh", "-c", "/web/target/qbench-1.0.0-SNAPSHOT-runner"]
+CMD ["java", "-jar", "/web/target/quarkus-app/quarkus-run.jar"]
+# CMD ["sh", "-c", "/web/target/qbench-1.0.0-SNAPSHOT-runner"]
